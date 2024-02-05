@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="styles/checkout.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Ensure you include Redux and potentially other necessary scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.0/redux.min.js"></script>
+
+</head>
+<body>
+    <header class="bg-gray-100 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Coffee Shop</h1>
+            <nav>
+              <ul class="flex space-x-4">
+                  <li><a href="index.html" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                  <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
+                  <li><a href="#" class="text-gray-600 hover:text-gray-800">Menu</a></li>
+                  <li><a href="#" class="text-gray-600 hover:text-gray-800">Reviews</a></li>
+                  <!-- Add your SVG link below -->
+                  <li><a href="checkout.html" class="text-gray-600 hover:text-gray-800">
+                      <img src="shopping-cart.png" alt="Cart" width="24" height="24">
+                  </a></li>
+              </ul>
+          </nav>
+        </div>
+    </header> 
+<div class="container mx-auto">
+  <h1 class="text-3xl font-bold text-center my-4">Checkout</h1>
+  <div id="cart-items" class="my-4">
+    <!-- Cart items will be dynamically inserted here by JavaScript -->
+  </div>
+  <div id="total-price" class="font-bold my-4">
+    <!-- Total price will be dynamically inserted here by JavaScript -->
+  </div>
+
+  <div class="flex items-center justify-center gap-4">
+      <button id="checkout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Checkout
+      </button>
+    
+      <button id="clear-cart" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Clear Cart
+      </button>
+  </div>
+</div>
+
+<footer class="fixed bottom-0  w-full bg-gray-100 p-4">
+    <div class="container mx-auto grid grid-cols-3 gap-4">
+        <div>
+        <h4 class="font-semibold mb-2">Contact Info</h4>
+        <p>Address: 1234 St.</p>
+        <p>Phone: 123-456-7890</p>
+        <p>Email: contact@coffeeshop.com</p>
+        </div>
+        <div>
+        <h4 class="font-semibold mb-2">Settings</h4>
+        <p>Address: 1234 St.</p>
+        <p>Phone: 123-456-7890</p>
+        <p>Email: contact@coffeeshop.com</p>
+        </div>
+        <div>
+        <h4 class="font-semibold mb-2">Newsletter</h4>
+        <form>
+            <input type="email" placeholder="Enter your email" class="border p-1 mr-2">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-1">Subscribe</button>
+        </form>
+        </div>
+    </div>
+    <div class="text-center py-4">
+        <p>&copy; 2023 Coffee Shop. All rights reserved.</p>
+    </div>
+</footer>
+
+  
+  <!-- Placeholder for toast notification container -->
+  <div id="toast-notification" class="hidden">
+    <!-- Toast messages will be dynamically inserted here -->
+  </div>
+
+  <!-- Include your JavaScript files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>
+
