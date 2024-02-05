@@ -14,20 +14,46 @@
   <header class="fixed top-0 w-full bg-gray-100 p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-3xl font-bold">Coffee Shop</h1>
-        <nav>
-          <ul class="flex space-x-4">
-              <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-gray-800">Menu</a></li>
-              <li><a href="#" class="text-gray-600 hover:text-gray-800">Reviews</a></li>
-              <!-- Add your SVG link below -->
-              <li><a href="checkout.html" class="text-gray-600 hover:text-gray-800">
-                  <img src="shopping-cart.png" alt="Cart" width="24" height="24">
-              </a></li>
-          </ul>
-      </nav>
+        <!-- Hamburger Menu Icon for Mobile -->
+        <div class="md:hidden">
+            <button id="hamburgerBtn">
+                <img src="hamburger.png" alt="Menu" width="24" height="24">
+            </button>
+        </div>
+        <!-- Desktop Menu -->
+        <nav class="desktop-menu">
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">Menu</a></li>
+                <li><a href="#" class="text-gray-600 hover:text-gray-800">Reviews</a></li>
+                <li><a href="checkout.html" class="text-gray-600 hover:text-gray-800">
+                    <img src="shopping-cart.png" alt="Cart" width="24" height="24">
+                </a></li>
+            </ul>
+        </nav>
     </div>
-</header>
+    <!-- Side Menu (Initially hidden) -->
+    <div id="sideMenu" class="fixed z-50 left-0 top-0 w-64 bg-gray-100 h-full shadow-md hidden">
+        <div class="p-5">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-semibold">Menu</h2>
+                <button id="closeBtn">
+                    <img src="hamburger.png" alt="Close" width="24" height="24"> <!-- Assuming the same icon for simplicity -->
+                </button>
+            </div>
+            <nav>
+                <ul class="mt-4">
+                    <li><a href="#" class="block text-gray-700 py-2">Home</a></li>
+                    <li><a href="#" class="block text-gray-700 py-2">About</a></li>
+                    <li><a href="#" class="block text-gray-700 py-2">Menu</a></li>
+                    <li><a href="#" class="block text-gray-700 py-2">Reviews</a></li>
+                    <li><a href="checkout.html" class="block text-gray-700 py-2">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+  </header>
 
 <section class="text-center py-16 bg-cover mt-16" style="background-image: url('https://source.unsplash.com/random/1920x1080?coffee');">
   <h1 class="text-6xl font-bold text-white mb-4">100% Harvested</h1>
@@ -115,7 +141,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+          </div>
         
         <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
           <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://source.unsplash.com/random/400x400?brownie');">
@@ -129,7 +155,7 @@
                   Brownie
               </p>
               <p class="text-gray-400 font-light text-md">
-                  A delicious fresh brownie that tastes super yummy!
+                  A delicious fresh brownie that tastes super yummy and is gooey!
               </p>
               <div class="flex items-center justify-center">
                   <button id="brownie" data-name="Brownie" data-price="5.99" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out">
@@ -155,7 +181,7 @@
                 A mouthwatering sandwich made with fresh ingredients.
               </p>
               <div class="flex items-center justify-center">
-                <button cid="bread" data-name="Bread" data-price="2.99" lass="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                <button cid="bread" data-name="Bread" data-price="2.99" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out">
                   Buy Now
                 </button>
               </div>
@@ -366,7 +392,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
 <script src="js/index.js"></script> <!-- For index.html -->
-
+<script>
+  document.getElementById('hamburgerBtn').addEventListener('click', function() {
+      document.getElementById('sideMenu').classList.toggle('hidden');
+  });
+  
+  document.getElementById('closeBtn').addEventListener('click', function() {
+      document.getElementById('sideMenu').classList.add('hidden');
+  });
+  </script>
 </body>
 </html>
 
