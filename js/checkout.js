@@ -1,98 +1,137 @@
+// Assuming Redux is already included in your project
 const { createStore } = Redux;
+
+// Define initial state
+const initialState = {
+    cart: [
+        // Example cart items
+        // { id: '1', name: 'Coffee', price: '5.99' },
+        // { id: '2', name: 'Pizza', price: '10.99' }
+    ]
+};
 
 // Load state from localStorage
 const loadState = () => {
-  try {
-    const serializedState = localStorage.getItem('cartState');
-    if (serializedState === null) {
-      return { cart: [] };
+    try {
+        const serializedState = localStorage.getItem('cartState');
+        if (serializedState === null) {
+            return initialState;
+        }
+        return JSON.parse(serializedState);
+    } catch (err) {
+        console.error('Could not load state', err);
+        return initialState;
     }
-    return JSON.parse(serializedState);
-  } catch (err) {
-    return { cart: [] };
-  }
 };
 
 // Save state to localStorage
 const saveState = (state) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('cartState', serializedState);
-  } catch (err) {
-    console.error('Could not save state', err);
-  }
+    try {
+        const serializedState = JSON.stringify(state);
+        localStorage.setItem('cartState', serializedState);
+    } catch (err) {
+        console.error('Could not save state', err);
+    }
 };
 
-const initialState = loadState();
-
-function cartReducer(state = initialState, action) {
-    console.log("Reducer Action:", action);
+// Cart reducer
+function cartReducer(state = loadState(), action) {
     switch (action.type) {
-        case 'REMOVE_FROM_CART':
-            const newState = {
-                ...state,
-                cart: state.cart.filter(item => item.id !== action.payload),
-            };
-            console.log("New State after REMOVE_FROM_CART:", newState);
-            return newState;
-        case 'CLEAR_CART': // New action type for clearing the cart
+        case 'ADD_TO_CART':
             return {
                 ...state,
-                cart: [], // Set cart to an empty array
+                cart: [...state.cart, action.payload]
+            };
+        case 'REMOVE_FROM_CART':
+            return {
+                ...state,
+                cart: state.cart.filter(item => item.id !== action.payload)
+            };
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                cart: []
             };
         default:
             return state;
     }
 }
 
+// Create Redux store
+const store = createStore(cartReducer);
 
-const store = createStore(cartReducer, initialState);
-
+// Subscribe to store updates to save to localStorage
 store.subscribe(() => {
-  renderCartItems();
-  saveState(store.getState());
+    saveState(store.getState());
 });
 
+// Render cart items and calculate total
 const renderCartItems = () => {
-  const state = store.getState();
-  const cartItemsElement = document.getElementById('cart-items');
-  cartItemsElement.innerHTML = '';
+    const { cart } = store.getState();
+    const cartItemsElement = document.getElementById('cart-items');
+    cartItemsElement.innerHTML = ''; // Clear previous items
 
-  state.cart.forEach(item => {
-    const itemElement = document.createElement('div');
-    itemElement.innerHTML = `${item.name} - $${item.price.toFixed(2)} <button class="remove-item border-2 border-black px-4 py-2 mb-2" data-id="${item.id}">Remove</button>`;
-    console.log(`Button for ${item.name} has ID: ${item.id}`); // Confirming button ID assignment
-    cartItemsElement.appendChild(itemElement);
-  });
-  
+    // Start with an empty table
+    let tableHTML = `<table class="min-w-full table-auto">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-4 py-2 text-left">Item</th>
+                                <th class="px-4 py-2 text-left">Price</th>
+                                <th class="px-4 py-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
 
-  attachRemoveItemListeners();
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        const itemPrice = parseFloat(item.price);
+        totalPrice += itemPrice;
+
+        tableHTML += `<tr>
+                        <td class="border px-4 py-2">${item.name}</td>
+                        <td class="border px-4 py-2">$${itemPrice.toFixed(2)}</td>
+                        <td class="border px-4 py-2">
+                            <button class="remove-item bg-blue-600 text-white font-bold py-1 px-2 rounded" data-id="${item.id}">Remove</button>
+                        </td>
+                      </tr>`;
+    });
+
+    tableHTML += `</tbody>
+                  </table>`;
+
+    cartItemsElement.innerHTML = tableHTML;
+
+    // Update total price display
+    const totalPriceElement = document.getElementById('total-price');
+    totalPriceElement.innerHTML = `<div class="text-right font-bold mt-2">Total: $${totalPrice.toFixed(2)}</div>`;
+
+    // Attach event listeners to remove buttons after the HTML has been updated
+    attachRemoveItemListeners();
 };
 
+
+// Attach event listeners to each remove button
 function attachRemoveItemListeners() {
     document.querySelectorAll('.remove-item').forEach(button => {
-      button.addEventListener('click', function(event) {
-        // Directly use event.currentTarget to ensure we're always referring to the button itself, not a child element
-        const itemId = event.currentTarget.getAttribute('data-id');
-        console.log(`Attempting to remove item with ID: ${itemId}`);
-
-        if (itemId) {
-          store.dispatch({
-            type: 'REMOVE_FROM_CART',
-            payload: itemId,
-          });
-        } else {
-          console.error('Item ID is undefined.');
-        }
-      });
+        button.addEventListener('click', function() {
+            const itemId = this.getAttribute('data-id');
+            store.dispatch({
+                type: 'REMOVE_FROM_CART',
+                payload: itemId
+            });
+        });
     });
 }
 
+// Clear cart event
 document.getElementById('clear-cart').addEventListener('click', () => {
     store.dispatch({ type: 'CLEAR_CART' });
-    console.log('Cart cleared');
 });
 
-
+// Initial render of the cart items
 renderCartItems();
+
+// Subscribe to store updates for re-rendering the cart items
+store.subscribe(renderCartItems);
 

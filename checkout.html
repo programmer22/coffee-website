@@ -28,58 +28,56 @@
           </nav>
         </div>
     </header> 
-<div class="container mx-auto p-8">
-  <h1 class="text-3xl font-bold text-center my-4">Checkout</h1>
-  <div id="cart-items" class="my-4">
-    <!-- Cart items will be dynamically inserted here by JavaScript -->
-  </div>
-  <div id="total-price" class="font-bold my-4">
-    <!-- Total price will be dynamically inserted here by JavaScript -->
-  </div>
 
-  <div class="flex items-center justify-center gap-4">
-      <button id="checkout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-        Checkout
-      </button>
-    
-      <button id="clear-cart" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-        Clear Cart
-      </button>
-  </div>
-</div>
-
-<footer class="fixed bottom-0 w-full bg-gray-100 p-4">
-    <div class="container mx-auto flex justify-between">
-        <div>
-        <h4 class="font-semibold mb-2">Contact Info</h4>
-        <p>Address: 1234 St.</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Email: contact@coffeeshop.com</p>
+    <main class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-center my-4">Checkout</h1>
+        <!-- Cart items section -->
+        <div id="cart-items" class="my-4">
+            <!-- Dynamic items will be inserted here -->
         </div>
-        
-        <div>
-        <h4 class="font-semibold mb-2">Newsletter</h4>
-        <form>
-            <input type="email" placeholder="Enter your email" class="border p-1 mr-2">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-1">Subscribe</button>
-        </form>
+        <!-- Summary section for totals and checkout -->
+        <div class="my-4 p-4 bg-white rounded shadow">
+            <div id="total-price" class="font-bold">
+                <!-- Total price dynamically inserted here -->
+            </div>
+            <div class="flex justify-between mt-4">
+                <button id="clear-cart" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                    Clear Cart
+                </button>
+                <button id="checkout" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Proceed to Checkout
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="text-center py-4">
-        <p>&copy; 2023 Coffee Shop. All rights reserved.</p>
-    </div>
-</footer>
+    </main>
 
-  
-  <!-- Placeholder for toast notification container -->
-  <div id="toast-notification" class="hidden">
-    <!-- Toast messages will be dynamically inserted here -->
-  </div>
 
-  <!-- Include your JavaScript files -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+    <footer class="fixed bottom-0 w-full bg-gray-100 p-4">
+        <div class="container mx-auto flex justify-between">
+            <div>
+            <h4 class="font-semibold mb-2">Contact Info</h4>
+            <p>Address: 1234 St.</p>
+            <p>Phone: 123-456-7890</p>
+            <p>Email: contact@coffeeshop.com</p>
+            </div>
+            
+            <div>
+            <h4 class="font-semibold mb-2">Newsletter</h4>
+            <form>
+                <input type="email" placeholder="Enter your email" class="border p-1 mr-2">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-1">Subscribe</button>
+            </form>
+            </div>
+        </div>
+        <div class="text-center py-4">
+            <p>&copy; 2023 Coffee Shop. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <script src="js/checkout.js"></script>
+    <!-- Include your JavaScript files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>
+
+    <script src="js/checkout.js"></script>
 </body>
 </html>
 
