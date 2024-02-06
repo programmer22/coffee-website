@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-
+   
 </style>
 </head>
 <body class="bg-white text-gray-800 font-sans xs:text-xs">
@@ -68,21 +68,27 @@
     <a href="#" id="jump-menu" class="bg-yellow-400 text-white px-6 py-2 rounded-full font-semibold">Order Now</a>
   </section>
 
-  <main class="container mx-auto">
-    <section class="container mx-auto my-8 p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <main class="container mx-auto sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
+    <section class="my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-200 flex items-center ">
       <div class="md:col-span-2 pr-8">
           <h2 class="text-2xl font-bold mb-4">About Us</h2>
-          <p class="pb-4">Hello everyone, my name is James! I am the owner of Coffee Shop. I am a fun, free-spirited, coffee dad, and I was manager to 3 coffee shops in past cities. I enjoy helping customers and serving the best coffee and pastries. I can't wait to thank you for visiting Coffee Shop, and we hope to see you again!</p>
-          <a href="#" class="text-blue-600 hover:text-blue-800 bg-blue-600 text-white font-bold px-4 py-2">Read more</a>
+          <div>
+            <p class="pb-4">Hello everyone, my name is James! I am the proud owner of Coffee Shop. With over a decade of experience in the coffee industry, I have cultivated a deep passion for coffee and a love for creating a warm and welcoming atmosphere for our customers. Previously, I had the privilege of managing three successful coffee shops in different cities, each of which left a lasting mark on the local coffee scene.</p>
+            <p class="more-text">At Coffee Shop, our commitment is to provide you with the highest quality coffee and pastries, meticulously sourced from the finest ingredients around the world. Our cozy coffee shop is not just a place to grab a cup of your favorite brew; it's an oasis where you can relax, unwind, and savor the simple pleasures of life. Whether you're a seasoned coffee enthusiast or someone simply seeking a moment of respite with a warm cup of happiness, we have something special for each and every one of you.</p>
+          </div>
+          <div class="my-4">
+            <a href="#" class="text-blue-600 hover:text-blue-800 bg-blue-600 text-white font-bold px-4 py-2 read-more-button">Read more</a>
+          </div>
+          
       </div>
       <div class="md:col-span-1">
           <div class="text-center bg-cover bg-center" style="padding-top: 100%; background-image: url('https://source.unsplash.com/random/600x800?portrait');"></div>
       </div>
-  </section>
+    </section>
   
       
 
-      <section id="menu-target" class="container mx-auto p-4">
+      <section id="menu-target" class="p-4">
         <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
         <h6 class="text-xl mb-8 text-center text-gray-600">Our Best Dishes</h6>
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -294,7 +300,7 @@
         </div>
       </section>
 
-      <section class="container mx-auto my-8 p-4">
+      <section class="my-8 p-4">
         <h3 class="text-xl font-semibold mb-4">Apparel / Other</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <a href="#" class="group block relative">
@@ -348,7 +354,7 @@
   </main>
 
   <footer class="bg-gray-100 p-4">
-    <div class="container mx-auto flex justify-between">
+    <div class="flex justify-between">
       <div>
         <h4 class="font-semibold mb-2">Contact Info</h4>
         <p>Address: 1234 St.</p>
