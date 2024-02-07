@@ -21,11 +21,15 @@
   }
 }
 
+.menu-background {
+  background-color: blanchedalmond;
+}
+
 </style>
 </head>
 <body class="bg-white text-gray-800 font-sans xs:text-xs">
   <header class="fixed top-0 w-full bg-gray-100 p-4 shadow-md z-30">
-    <div class="container mx-auto flex justify-between items-center">
+    <div class="flex justify-between items-center">
         <a href="index.html"><h1 class="text-3xl font-bold">Coffee Shop</h1></a>
         <!-- Hamburger and Cart Icons for Mobile -->
         <div class="flex mobile-nav md:hidden">
@@ -81,8 +85,8 @@
     <a href="#" id="jump-menu" class="bg-yellow-400 text-white px-6 py-2 rounded-full font-semibold">Order Now</a>
   </section>
 
-  <main class="container mx-auto sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
-    <section class="my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 flex items-center">
+  <main class="sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
+    <section class=" container mx-auto my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 flex items-center">
       <div class="md:col-span-2 pr-8">
         <h2 class="text-2xl font-bold mb-4">About Us</h2>
         <div>
@@ -101,10 +105,10 @@
   
       
 
-      <section id="menu-target" class="p-4">
+      <section id="menu-targe" class="menu-background p-4">
         <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
         <h6 class="text-xl mb-8 text-center text-gray-600">Our Best Dishes</h6>
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
               <!-- Example Product Card -->
               <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
                   <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://source.unsplash.com/random/400x400?pizza');">
@@ -313,7 +317,7 @@
         </div>
       </section>
 
-      <section class="my-8 p-4">
+      <section class="container mx-auto my-8 p-4">
         <h3 class="text-xl font-semibold mb-4">Apparel / Other</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <a href="#" class="group block relative">
@@ -383,7 +387,7 @@
       </div>
     </div>
     <div class="text-center py-4">
-      <p>&copy; 2024 Nick Lopacki Web Agency. All rights reserved.</p>
+      <p>&copy; 2024 Web Agency. All rights reserved.</p>
     </div>
   </footer>
 
