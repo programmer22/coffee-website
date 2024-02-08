@@ -25,12 +25,141 @@
   background-color: blanchedalmond;
 }
 
+#svg-img {
+  width: 60px;
+  height: 60px;
+}
+
+
+
+/* Styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+
+
+  .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.radio-group label {
+    font-weight: normal;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Additional styling for enhanced design */
+.form {
+    position: relative;
+
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+.form:hover {
+    transform: translateY(-5px);
+}
+
+.form:hover:before {
+    transform: scaleX(1);
+}
+
+/* Styling for form inputs and button */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea,
+button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+
+/* Styling for form button */
+button {
+    background-color: #007bff;
+    color: #fff;
+}
+
 </style>
 </head>
-<body class="bg-white text-gray-800 font-sans xs:text-xs">
+<body class="text-gray-800 font-sans xs:text-xs">
   <header class="fixed top-0 w-full bg-gray-100 p-4 shadow-md z-30">
     <div class="flex justify-between items-center">
+      <div class="flex items-center align-center">
+        <a href="index.html"><img id="svg-img" src="coffee.svg" walt="SVG Image"></a>
         <a href="index.html"><h1 class="text-3xl font-bold">Coffee Shop</h1></a>
+      </div>
         <!-- Hamburger and Cart Icons for Mobile -->
         <div class="flex mobile-nav md:hidden">
           <button id="hamburgerBtn">
@@ -79,14 +208,14 @@
     </div>
   </header>
 
-  <section class="text-center py-16 bg-cover mt-16" style="background-image: url('https://source.unsplash.com/random/1920x1080?coffee');">
+  <section class="text-center py-60 bg-cover mt-16" style="background-image: url('https://source.unsplash.com/random/1920x1080?coffee');">
     <h1 class="text-6xl font-bold text-white mb-4">100% Harvested</h1>
     <h6 class="text-xl font-bold text-white mb-4">Only the best ingredients</h6>
     <a href="#" id="jump-menu" class="bg-yellow-400 text-white px-6 py-2 rounded-full font-semibold">Order Now</a>
   </section>
 
   <main class="sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
-    <section class=" container mx-auto my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 flex items-center">
+    <section class="container mx-auto my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 flex items-center">
       <div class="md:col-span-2 pr-8">
         <h2 class="text-2xl font-bold mb-4">About Us</h2>
         <div>
@@ -94,8 +223,17 @@
           <p class="more-text">At Coffee Shop, our commitment is to provide you with the highest quality coffee and pastries, meticulously sourced from the finest ingredients around the world. Our cozy coffee shop is not just a place to grab a cup of your favorite brew; it's an oasis where you can relax, unwind, and savor the simple pleasures of life. Whether you're a seasoned coffee enthusiast or someone simply seeking a moment of respite with a warm cup of happiness, we have something special for each and every one of you.</p>
         </div>
         <div class="my-4">
-          <a href="#" class="text-blue-600 hover:text-blue-800 bg-blue-600 text-white font-bold px-4 py-2 read-more-button">Read more</a>
+          <button class="text-blue-600 hover:text-blue-800 bg-blue-600 text-white font-bold px-4 py-2 read-more-button" onclick="openModal()">Read more</button>
         </div>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p>
+              Established over several decades ago, our beloved coffee shop stands as a timeless beacon of warmth and community in the bustling heart of the city. From its humble beginnings as a quaint corner cafe to its current status as an iconic institution, our establishment has remained steadfast in its commitment to providing unparalleled quality and service to generations of coffee enthusiasts. Nestled amidst the historic streets, our inviting ambiance welcomes patrons into a sanctuary where the rich aroma of freshly brewed coffee blends harmoniously with the gentle hum of conversation, creating an atmosphere that feels like home to both regulars and newcomers alike. With a dedication to sourcing the finest beans from around the world and expertly crafted brewing techniques honed over years of passion and expertise, each cup served tells a story of tradition, excellence, and unwavering dedication to the craft. Our knowledgeable baristas, who have become beloved fixtures within the community, are not only skilled artisans but also passionate storytellers, eager to share their wealth of coffee knowledge and recommendations with eager patrons. As the morning sun filters through the windows, illuminating the cozy interior with a golden glow, and the evening twilight casts a serene ambiance over the bustling cafe, our coffee shop remains a cherished gathering place where cherished memories are made, friendships are forged, and the simple pleasure of a perfectly brewed cup of coffee is celebrated with each sip.</p>
+          </div>
+        </div>
+        
       </div>
       <div class="md:col-span-1">
         <div class="text-center bg-cover bg-center image-container"></div>
@@ -105,7 +243,7 @@
   
       
 
-      <section id="menu-targe" class="menu-background p-4">
+      <section id="menu-targe" class="p-4">
         <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
         <h6 class="text-xl mb-8 text-center text-gray-600">Our Best Dishes</h6>
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -320,44 +458,48 @@
       <section class="container mx-auto my-8 p-4">
         <h3 class="text-xl font-semibold mb-4">Apparel / Other</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Shirts
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/400x400?shirt');"></div>
-          </a>
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Pants
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/400x400?pants');"></div>
-          </a>
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Socks
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?socks');"></div>
-          </a>
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Underwear
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?underwear');"></div>
-          </a>
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Hoodies
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?hoodies');"></div>
-          </a>
-          <a href="#" class="group block relative">
-            <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              T-Shirts
-            </div>
-            <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?tshirt');"></div>
-          </a>
+            <!-- First two items -->
+            <a href="#" class="group block relative sm:flex-1">
+              <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Shirts
+              </div>
+              <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/400x400?shirt');"></div>
+            </a>
+            <!-- Third item -->
+            <a href="#" class="group block relative">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Underwear
+                </div>
+                <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?underwear');"></div>
+            </a>
+            <!-- Last two items -->
+            <a href="#" class="group block relative">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Hoodies
+                </div>
+                <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?hoodies');"></div>
+            </a>
+            <a href="#" class="group block relative">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    T-Shirts
+                </div>
+                <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/800x800?tshirt');"></div>
+            </a>
+            <a href="#" class="group block relative sm:flex-1 mt-4 sm:mt-0">
+              <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Pants
+              </div>
+              <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/400x400?pants');"></div>
+            </a>
+            <a href="#" class="group block relative sm:flex-1 mt-4 sm:mt-0">
+              <div class="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center font-bold text-white text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  shoes
+              </div>
+              <div class="h-44 w-full bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/400x400?shoes');"></div>
+            </a>
         </div>
-      </section>
+    </section>
+    
       
       
       <!-- <section class="container mx-auto my-8 p-4">
@@ -368,6 +510,55 @@
           <div class="blog-item h-40"></div>
         </div>
       </section> -->
+
+      <!-- Contact Section -->
+    <div class="container mx-auto pb-10">
+        <h1 class="text-3xl font-bold text-center mb-6">Contact Me</h1>
+        <form action="https://formspree.io/f/mpzgjkak" method="POST" class="form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="au">Australia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="subscribe-yes">Subscribe to Newsletter</label>
+                <div class="flex gap-4">
+                    <div class="block">
+                        <input type="radio" id="subscribe-yes" name="subscribe" value="yes">
+                        <label for="subscribe-yes">Yes</label>
+                    </div>
+
+                    <div class="block">
+                        <input type="radio" id="subscribe-no" name="subscribe" value="no">
+                        <label for="subscribe-no">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
   </main>
 
   <footer class="bg-gray-100 p-4">
@@ -409,6 +600,17 @@
         behavior: 'smooth'
       });
     });
+
+    function openModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+    }
+  
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+
   </script>
 </body>
 </html>

@@ -8,26 +8,64 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Ensure you include Redux and potentially other necessary scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.0/redux.min.js"></script>
-  
+  <style>
+ 
+  </style>
 </head>
 <body class="">
-    <header class="bg-gray-100 p-4 shadow-md">
+    <header class="fixed top-0 w-full bg-gray-100 p-4 shadow-md z-30">
         <div class="flex justify-between items-center">
+          <div class="flex items-center align-center">
+            <a href="index.html"><img id="svg-img" src="coffee.svg" alt="SVG Image" width="40" height="40"></a>
             <a href="index.html"><h1 class="text-3xl font-bold">Coffee Shop</h1></a>
-            <nav>
-              <ul class="flex space-x-4">
-                  <li><a href="index.html" class="text-gray-600 hover:text-gray-800">Home</a></li>
-                  <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
-                  <li><a href="#" class="text-gray-600 hover:text-gray-800">Menu</a></li>
-                  <li><a href="#" class="text-gray-600 hover:text-gray-800">Reviews</a></li>
-                  <!-- Add your SVG link below -->
-                  <li><a href="checkout.html" class="text-gray-600 hover:text-gray-800">
-                      <img src="shopping-cart.png" alt="Cart" width="24" height="24">
-                  </a></li>
-              </ul>
-          </nav>
+          </div>
+            <!-- Hamburger and Cart Icons for Mobile -->
+            <div class="flex mobile-nav md:hidden">
+              <button id="hamburgerBtn">
+                  <img src="hamburger.png" alt="Menu" width="24" height="24">
+              </button>
+              <!-- Cart Icon - Always visible on mobile alongside the hamburger menu -->
+              <a href="checkout.html" class="ml-3">
+                  <img src="shopping-cart.png" alt="Cart" width="24" height="24">
+              </a>
+            </div>
+            <!-- Desktop Menu -->
+            <nav id="nav-menu" class="hidden md:block">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">About</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Menu</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Reviews</a></li>
+                    <li><a href="checkout.html" class="text-gray-600 hover:text-gray-800">
+                        <img src="shopping-cart.png" alt="Cart" class="h-6 w-6">
+                    </a></li>
+                </ul>
+            </nav>
         </div>
-    </header> 
+        <!-- Side Menu (Initially hidden) -->
+        <div id="sideMenu" class="fixed z-50 left-0 top-0 w-64 bg-gray-100 h-full shadow-md hidden">
+            <div class="p-5">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-xl font-semibold">Menu</h2>
+                    <button id="closeBtn">
+                        <!-- Assuming a close icon SVG for simplicity -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <nav>
+                    <ul class="mt-4">
+                        <li><a href="#" class="block text-gray-700 py-2">Home</a></li>
+                        <li><a href="#" class="block text-gray-700 py-2">About</a></li>
+                        <li><a href="#" id="jump-menu" class="block text-gray-700 py-2">Menu</a></li>
+                        <li><a href="#" class="block text-gray-700 py-2">Reviews</a></li>
+                        <li><a href="checkout.html" class="block text-gray-700 py-2">Cart</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+      </header>
 
     <main class="p-8">
         <h1 class="text-3xl font-bold text-center my-4">Checkout</h1>
