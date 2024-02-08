@@ -217,7 +217,7 @@ button {
   <main class="sm:text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-xl">
     <section class="container mx-auto my-8 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 flex items-center">
       <div class="md:col-span-2 pr-8">
-        <h2 class="text-2xl font-bold mb-4">About Us</h2>
+        <h2 class="text-3xl font-bold mb-4">About Us</h2>
         <div>
           <p class="pb-4">Hello everyone, my name is James! I am the proud owner of Coffee Shop. With over a decade of experience in the coffee industry, I have cultivated a deep passion for coffee and a love for creating a warm and welcoming atmosphere for our customers. Previously, I had the privilege of managing three successful coffee shops in different cities, each of which left a lasting mark on the local coffee scene.</p>
           <p class="more-text">At Coffee Shop, our commitment is to provide you with the highest quality coffee and pastries, meticulously sourced from the finest ingredients around the world. Our cozy coffee shop is not just a place to grab a cup of your favorite brew; it's an oasis where you can relax, unwind, and savor the simple pleasures of life. Whether you're a seasoned coffee enthusiast or someone simply seeking a moment of respite with a warm cup of happiness, we have something special for each and every one of you.</p>
@@ -240,12 +240,89 @@ button {
       </div>
     </section>
     
+
+    <section id="features" class="px-4 space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-20">
+      <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <h2 class="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">Coffee Shop Features</h2>
+          <p class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+              Discover the unique blend of flavors, aromas, and experiences at our coffee shop. From expertly brewed coffee to handmade pastries and treats, every visit offers a new delight.
+          </p>
+      </div>
+  
+      <div class="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          <!-- Specialty Coffees -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="coffee-beans.png" alt="Specialty Coffees" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Specialty Coffees</h3>
+                      <p class="text-sm text-muted-foreground">Savor our single-origin and blend coffees, each with its unique taste profile.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Handcrafted Pastries -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="pastry.png" alt="Handcrafted Pastries" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Handcrafted Pastries</h3>
+                      <p class="text-sm">Indulge in our freshly baked pastries, a perfect companion to your coffee.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Cozy Atmosphere -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="cozy-atmosphere.png" alt="Cozy Atmosphere" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Cozy Atmosphere</h3>
+                      <p class="text-sm text-muted-foreground">Enjoy your coffee in a warm, inviting environment that feels like a second home.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Sustainable Practices -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="sustainable.png" alt="Sustainable Practices" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Sustainable Practices</h3>
+                      <p class="text-sm">We're committed to sustainability, from ethically sourced beans to eco-friendly packaging.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Custom Brew Methods -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="brew-methods.png" alt="Custom Brew Methods" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Custom Brew Methods</h3>
+                      <p class="text-sm text-muted-foreground">Explore various brew methods with us, from pour-over to espresso.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Community Events -->
+          <div class="relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2">
+              <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+                  <img src="community-events.png" alt="Community Events" class="h-12 w-12 fill-current"> <!-- Replace with appropriate svg path or image -->
+                  <div class="space-y-2">
+                      <h3 class="font-bold">Community Events</h3>
+                      <p class="text-sm">Join us for events that bring coffee lovers together, from tastings to workshops.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
   
       
 
       <section id="menu-targe" class="p-4">
-        <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
-        <h6 class="text-xl mb-8 text-center text-gray-600">Our Best Dishes</h6>
+        <h3 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
               <!-- Example Product Card -->
               <div class="overflow-hidden shadow-lg rounded-lg h-90 cursor-pointer m-auto">
@@ -455,8 +532,20 @@ button {
         </div>
       </section>
 
+
+      <section class="bg-black overflow-visible my-0 py-24 mt-24">
+        <div class="text-white items-center text-center flex flex-col">
+          <h2 class="font-bold text-2xl lg:text-4xl">Visit our coffee shop</h2>
+          <p class="mx-auto mt-6 max-w-xl text-lg md:text-xl leading-8 text-slate-400">
+            Visit our coffee shop anytime and say the code COFFEE23 to the barista to get 15% off your next order or click below.
+          </p>
+          <a class="mt-8 rounded-md bg-white px-5 py-2.5 text-base font-semibold leading-7 text-black hover:bg-gray-200 transition focus:outline-none focus:ring focus:border-blue-300"
+            href="#">Claim Your 15% order now</a>
+        </div>
+      </section>
+
       <section class="container mx-auto my-8 p-4">
-        <h3 class="text-xl font-semibold mb-4">Apparel / Other</h3>
+        <h3 class="text-3xl font-bold mb-6 text-center">Apparel / Other</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <!-- First two items -->
             <a href="#" class="group block relative sm:flex-1">
@@ -511,32 +600,42 @@ button {
         </div>
       </section> -->
 
-      <!-- Contact Section -->
-    <div class="container mx-auto pb-10">
-        <h1 class="text-3xl font-bold text-center mb-6">Contact Us</h1>
-        <form action="https://formspree.io/f/mpzgjkak" method="POST" class="form">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="_replyto" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out">Submit</button>
-            </div>
-        </form>
-    </div>
-  </main>
+      <main class="container mx-auto flex flex-col lg:flex-row items-center justify-center py-10">
+    
+        <!-- Contact Section -->
+        <div class="container mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">Contact Us</h3>
+            <form action="https://formspree.io/f/mpzgjkak" method="POST" class="form">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="name" class="block">Full Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="border border-gray-300 px-3 py-2 rounded-md w-full">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="block">Email</label>
+                        <input type="email" id="email" name="_replyto" required
+                            class="border border-gray-300 px-3 py-2 rounded-md w-full">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="block">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required
+                            class="border border-gray-300 px-3 py-2 rounded-md w-full">
+                    </div>
+                    <div class="form-group col-span-2">
+                        <label for="message" class="block">Message</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="border border-gray-300 px-3 py-2 rounded-md w-full"></textarea>
+                    </div>
+                    <div class="form-group col-span-2">
+                        <button type="submit"
+                            class="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out w-full">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    
 
   <footer class="bg-gray-100 p-4">
     <div class="flex justify-between">
