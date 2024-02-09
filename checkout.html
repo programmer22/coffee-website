@@ -9,7 +9,7 @@
   <!-- Ensure you include Redux and potentially other necessary scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.0/redux.min.js"></script>
   <style>
- 
+    
   </style>
 </head>
 <body class="">
@@ -111,6 +111,30 @@
             <p>&copy; 2023 Coffee Shop. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Function to adjust the main content padding dynamically
+        function adjustContentPadding() {
+          const header = document.querySelector('header');
+          const footer = document.querySelector('footer');
+          const body = document.body;
+      
+          // Get the height of the header and footer
+          const headerHeight = header.offsetHeight;
+          const footerHeight = footer.offsetHeight;
+      
+          // Set the padding of the body to match the header and footer height
+          body.style.paddingTop = headerHeight + 'px';
+          body.style.paddingBottom = footerHeight + 'px';
+        }
+      
+        // Run the function on initial load
+        adjustContentPadding();
+      
+        // Re-run the function whenever the window is resized to adjust for responsive changes
+        window.addEventListener('resize', adjustContentPadding);
+      </script>
+      
 
     <!-- Include your JavaScript files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.1/redux.min.js"></script>

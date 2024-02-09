@@ -3,11 +3,7 @@ const { createStore } = Redux;
 
 // Define initial state
 const initialState = {
-    cart: [
-        // Example cart items
-        // { id: '1', name: 'Coffee', price: '5.99' },
-        // { id: '2', name: 'Pizza', price: '10.99' }
-    ]
+    cart: []
 };
 
 // Load state from localStorage
@@ -111,6 +107,9 @@ const renderCartItems = () => {
 };
 
 
+
+
+
 // Attach event listeners to each remove button
 function attachRemoveItemListeners() {
     document.querySelectorAll('.remove-item').forEach(button => {
@@ -134,4 +133,15 @@ renderCartItems();
 
 // Subscribe to store updates for re-rendering the cart items
 store.subscribe(renderCartItems);
+
+
+
+
+
+
+
+
+
+
+
 
