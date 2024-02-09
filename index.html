@@ -157,7 +157,7 @@ button {
 </style>
 </head>
 <body class="text-gray-800 font-sans xs:text-xs">
-  <header class="fixed top-0 w-full bg-gray-100 p-6 shadow-md z-30 text-sm sm:text-lg md:text-lg lg:text-lg">
+  <header class="fixed top-0 w-full bg-gray-100 p-6 shadow-md z-30">
     <div class="flex justify-between items-center">
       <div class="flex items-center align-center">
         <a href="index.html"><img id="svg-img" src="coffee.svg" walt="SVG Image"></a>
@@ -646,17 +646,19 @@ button {
 
   <footer class="bg-gray-100 p-4 text-sm sm:text-lg md:text-lg lg:text-lg">
     <div class="flex justify-between gap-4 :text-2xl">
-      <div>
+      <div class="">
         <h4 class="font-semibold mb-2">Contact Info</h4>
-        <p>Address: 1234 St Dallas, TX</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Email: southerngrounds@coffeeshop.com</p>
+        <div class="flex flex-col gap-1">
+          <p>Address: 1234 St Dallas, TX</p>
+          <p>Phone: 123-456-7890</p>
+          <p>Email: southerngrounds@coffeeshop.com</p>
+        </div>
       </div>
       <div>
-        <h4 class="font-semibold mb-2">Newsletter</h4>
+        <h4 class="font-semibold">Newsletter</h4>
         <form>
           <input type="email" placeholder="Enter your email" class="border p-1 mr-2">
-          <button type="submit" class="bg-blue-500 text-white px-4 py-1 mt-2">Subscribe</button>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-1 mt-1">Subscribe</button>
         </form>
       </div>
     </div>
